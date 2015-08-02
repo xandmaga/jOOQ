@@ -285,4 +285,6 @@ public interface DAO<R extends TableRecord<R>, P, T> {
      * Get the underlying POJO type
      */
     Class<P> getType();
+
+	<Z extends Record> List<P> findAll(Table<Z>... table);
 }

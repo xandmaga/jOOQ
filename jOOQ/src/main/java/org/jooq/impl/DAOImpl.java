@@ -249,6 +249,15 @@ public abstract class DAOImpl<R extends UpdatableRecord<R>, P, T> implements DAO
                  .fetch()
                  .map(mapper());
     }
+    
+    
+    @Override
+    public final <Z extends Record> List<P> findAll(Table<Z>... table) {
+        return using(configuration)
+                 .selectFrom(this.table)
+                 .fetch()
+                 .map(mapper());
+    }    
 
     @Override
     public final P findById(T id) {
